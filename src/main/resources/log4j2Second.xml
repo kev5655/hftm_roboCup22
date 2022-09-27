@@ -1,0 +1,246 @@
+
+<Configuration status="info" monitorInterval="30">
+
+    <Properties>
+        <!--<Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
+        %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}-%t-%x-%-5p-%-10c:%m%n
+        %d [%-6p] %c{1} - %m%n
+        %sn %d{yyyy/MM/dd HH:mm:ss,SSS} %r [%-6p] [%t] %c{3} %C{3}.%M(%F:%L) - %m%n
+       -->
+        <Property name="LOG_PATTERN"> %d{MM/dd HH:mm:ss,SSS} [%-6p] [%t] %C{1}.%M(%F:%L)  -  %m%n</Property>
+        <Property name="LOG_DIR">./logs</Property>
+
+    </Properties>
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="logger" fileName="./logs/logger.log"
+                     filePattern="./logs/logger-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logIncomingMqttMsgHandler" fileName="./logs/incomingMqttMsgHandler.log"
+                     filePattern="./logs/incomingMqttMsgHandler-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logPublishedMqttMsg" fileName="./logs/publishedMqttMsg.log"
+                     filePattern="./logs/publishedMqttMsg-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logIncomingRefboxMsg" fileName="./logs/incomingRefboxMsg.log"
+                     filePattern="./logs/incomingRefboxMsg-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logPublishedRefboxMsg" fileName="./logs/publishedRefboxMsg.log"
+                     filePattern="./logs/publishedRefboxMsg-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logEventBus" fileName="./logs/eventBus.log"
+                     filePattern="./logs/eventBus-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logJobCreator" fileName="./logs/jobCreator.log"
+                     filePattern="./logs/jobCreator-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logGame" fileName="./logs/game.log"
+                     filePattern="./logs/game-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logStartedSystem" fileName="./logs/startedSystem.log"
+                     filePattern="./logs/startedSystem-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logDriveSystem" fileName="./logs/driveSystem.log"
+                     filePattern="./logs/driveSystem-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logMqttMsgHandler" fileName="./logs/mqttMsgHandler.log"
+                     filePattern="./logs/mqttMsgHandler-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logVisu" fileName="./logs/visu.log"
+                     filePattern="./logs/visu-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="logmachine" fileName="./logs/machine.log"
+                     filePattern="./logs/machine-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="NavChallenge" fileName="./logs/NavChallenge.log"
+                     filePattern="./logs/NavChallenge-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+
+
+    <Loggers>
+        <!-- MainGui Logger -->
+        <Logger name="com.robotino.helperClass.Log" additivity="false">
+            <AppenderRef ref="logger" />
+            <AppenderRef ref="Console" />
+        </Logger>
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logIncomingMqttMsgHandler" additivity="false">
+            <AppenderRef ref="logIncomingMqttMsgHandler" />
+        </Logger>
+
+        <!-- Logger für ausgehende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logPublishedMqttMsg" additivity="false">
+            <AppenderRef ref="logPublishedMqttMsg" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logIncomingRefboxMsg" additivity="false">
+            <AppenderRef ref="logIncomingRefboxMsg" />
+            <!-- <AppenderRef ref="Console"/> -->
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logPublishedRefboxMsg" additivity="false">
+            <AppenderRef ref="logPublishedRefboxMsg" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logEventBus" additivity="false">
+            <AppenderRef ref="logEventBus" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logJobCreator" additivity="false">
+            <AppenderRef ref="logJobCreator" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logGame" additivity="false">
+            <AppenderRef ref="logGame" />
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logStartedSystem" additivity="false">
+            <AppenderRef ref="logStartedSystem" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logDriveSystem" additivity="false">
+            <AppenderRef ref="logDriveSystem" />
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- Logger für ankommende Mqtt Nachrichten -->
+        <Logger name="com.robotino.helperClass.Log.logMqttMsgHandler" additivity="false">
+            <AppenderRef ref="logMqttMsgHandler" />
+        </Logger>
+
+        <Logger name="com.robotino.helperClass.Log.logVisu" additivity="false">
+            <AppenderRef ref="logVisu" />
+            <!-- <AppenderRef ref="Console" /> -->
+        </Logger>
+
+        <Logger name="com.robotino.helperClass.Log.logmachine" additivity="false">
+            <AppenderRef ref="logmachine" />
+            <!-- <AppenderRef ref="Console" /> -->
+        </Logger>
+
+        <Logger name="com.robotino.helperClass.Log.logNavChallenge" additivity="false">
+            <AppenderRef ref="NavChallenge" />
+            <!-- <AppenderRef ref="Console" /> -->
+        </Logger>
+
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- GAME PLAY INFOS -->
+	<entry key="challenge">1</entry> <!--0 = NavigationChallenge 1 = Grasping 2 = game oder Production-->
+	<entry key="teamName">Solidus</entry>
+	<entry key="teamColor">MAGENTA</entry>
+
+
+	<entry key="robo1StartPosition">M_Z31</entry> <!-- Start position des erste Roboters -->
+	<entry key="robo2StartPosition">M_Z31</entry> <!-- Start position des zweiten Roboters -->
+	<entry key="robo3StartPosition">M_Z31</entry> <!-- Start position des dritten Roboters -->
+	<entry key="roboSpeed">100</entry>
+	
+	<!-- NETWORK
+	wen die Refbox nicht über den Localhost kommuniziert müsse send und receive
+	Port's immer gleich sein.
+	Auch müsse die Port's mit der Refbox Config übereinstimmen.
+	Es braucht nur eine Private Verbindung also CYAN oder MAGENTA jedoch werden alle Port's
+	angegeben so kann nur der Namen geändert werden und ander Port's werden verwendet -->
+	<entry key="refBoxIp">172.26.107.213</entry> <!-- 172.26.107.212 192.168.1.132  172.17.0.1 127.0.0.1 -->
+	<entry key="REFBOX_PUBLIC_PEER_RECEIVE_PORT">4444</entry>
+	<entry key="REFBOX_PUBLIC_PEER_SEND_PORT">4445</entry>
+	<entry key="REFBOX_PRIVATE_MAGENTA_PEER_RECEIVE_PORT">4442</entry>
+	<entry key="REFBOX_PRIVATE_MAGENTA_PEER_SEND_PORT">4447</entry>
+	<entry key="REFBOX_PRIVATE_CYAN_PEER_RECEIVE_PORT">4441</entry>
+	<entry key="REFBOX_PRIVATE_CYAN_PEER_SEND_PORT">4446</entry>
+	<entry key="encKey">randomkey</entry> <!-- ist für die Verschlüsselung des Privaten Peer -->
+	<entry key="mqttBrokerIp">172.26.107.212</entry> <!-- {127.0.0.1} {broker.hivemq.com} -->
+
+
+	<!--  Set Mockup MPS-Stations -->
+	<entry key="Stations">BS;CS1;RS1;RS2;DS</entry> <!-- ;DS;SS; ;RS2;CS2 RS1; ;RS2 -->
+	<entry key="isGame">false</entry> <!-- true -->
+	<entry key="hasEntryWall">false</entry>
+	<entry key="isMirrorOn">false</entry>
+	
+	<!-- Set FieldSize Achtung Laser Korrektur Eckpunkte Sind im Laser XML Parameter -->
+	<entry key="fieldHeight">8000</entry> <!-- in mm Example {5000} {8000} -->
+	<entry key="fieldWidth">14000</entry> <!-- in mm Example {5000} {7000} {14000} -->
+	<entry key="teamsOnField">1</entry>
+
+</properties>

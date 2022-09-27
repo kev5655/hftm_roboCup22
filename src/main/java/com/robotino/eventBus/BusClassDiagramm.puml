@@ -1,0 +1,88 @@
+@startuml
+
+    RoboOnPositionBus <-- Bus : implements
+    NavigationRouteBus <-- Bus : implements
+    DrivePathPosReachedBus <-- Bus : implements
+    Bus -[hidden]-- RoboOnPositionEvent
+    Bus -[hidden]-- NavigationRouteEvent
+    Bus -[hidden]-- DrivePathPosReachedEvent
+
+    class RoboOnPositionBus << (S,#FF7700) Singleton >>
+    class NavigationRouteBus << (S,#FF7700) Singleton >>
+    class DrivePathPosReachedBus << (S,#FF7700) Singleton >>
+
+    class RoboOnPositionBus{
+        - {static} final DrivePathPosReachedBus DRIVE_PATH_POS_REACHED =  new DrivePathPosReachedBus
+        - List<Subscriber> subscriberList = new ArrayList<Subscriber>
+        
+        -DrivePathPosReachedBus()
+        + {static} getInstance() : DrivePathPosReachedBus
+    }
+    class NavigationRouteBus{
+        - {static} final NavigationRouteBus NAVIGATION_ROUTE_BUS =  new NavigationRouteBus
+        - List<Subscriber> subscriberList = new ArrayList<Subscriber>
+        
+        - NavigationRouteBus()
+        + {static} getInstance() : NavigationRouteBus
+    }
+
+    class DrivePathPosReachedBus{
+        - {static} final RoboOnPositionBus ROBO_ONPO_POSITION_BUS = new RoboOnPositionBus
+        - List<Subscriber> subscriberList = new ArrayList<Subscriber>
+
+        - RoboOnPositionBus()
+        + {static} getInstance() : RoboOnPositionBus
+    }
+
+    interface Bus{
+        + publish(Event event)
+        + subscriber(Subscriber subscriber)
+        + unsubscribe(Subscriber subscriber)
+    }
+
+
+    RoboOnPositionEvent <-- Event : extends
+    NavigationRouteEvent <-- Event : extends
+    DrivePathPosReachedEvent <-- Event : extends
+
+    Event -[hidden]-- NavChallenge
+    Event -[hidden]-- DrivePath
+
+    class RoboOnPositionEvent{
+        - List<String> zoneList
+        + NavigationRouteEvent(List<String> zoneList)
+        + getZoneList() : List<String>
+    }
+
+    class NavigationRouteEvent{
+        - List<String> zoneList
+        + NavigationRouteEvent(List<String> zoneList)
+        + getZoneList() : List<String>
+    }
+
+    class DrivePathPosReachedEvent{
+        - boolean isPosReached
+        + DrivePathPosReachedEvent(boolean isPosReached)
+        + isRoboOnPos() : boolean
+    }
+    class Event{
+        + Event()
+    }
+
+    NavChallenge <-- Subscriber : implements
+    DrivePath <-- Subscriber : implements
+
+    interface Subscriber{
+        + onReceive(Event event)
+    }
+
+    class NavChallenge{
+        NavigationRouteBus.getInstance().subscriber(this)
+        DrivePathPosReachedBus.getInstance().subscriber(this)
+    }
+
+    class DrivePath{
+        RoboOnPositionBus.getInstance().subscriber(this)
+    }
+
+@enduml
